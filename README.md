@@ -1,30 +1,30 @@
-build package:
+### Setup
 
-(run in screen session)
+```
+make build
+```
+
+```
+~/bin/setup.sh
+```
+
+### Building a Package:
+
+(for example build `time`)
+
+```
+time ./build.sh time
+```
+
+the deb package was located in it's folder
+
+you can run those steps in screen session
 
 ```
 screen -S deb -L
 ```
 
-```
-~/work/build.sh PACKAGE_NAME
-```
-
-or build it manually with (same with build.sh)
-
-```
-sudo apt update && sudo apt install -y time &&
-sudo apt-get build-dep mpv &&
-mkdir -p mpv &&
-cd mpv &&
-apt-get source mpv &&
-cd mpv* &&
-time dpkg-buildpackage -uc -us -b -j"$(nproc)"
-```
-
-the deb package was located in the folder named with it's name
-
-incase the compiling failed, check the log with:
+and check the logs with:
 
 ```
 tail -f screenlog.0
